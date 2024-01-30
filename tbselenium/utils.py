@@ -90,7 +90,7 @@ def launch_tbb_tor_with_stem(tbb_path=None, torrc=None, tor_binary=None):
                  'SOCKSPort': str(cm.STEM_SOCKS_PORT),
                  'DataDirectory': tempfile.mkdtemp()}
 
-    return launch_tor_with_config(config=torrc, tor_cmd=tor_binary)
+    # return launch_tor_with_config(config=torrc, tor_cmd=tor_binary)
 
 
 def set_tbb_pref(driver, name, value):

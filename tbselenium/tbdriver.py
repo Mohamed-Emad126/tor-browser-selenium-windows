@@ -18,7 +18,6 @@ from tbselenium.exceptions import (
 
 
 DEFAULT_BANNED_PORTS = "9050,9051,9150,9151"
-GECKO_DRIVER_EXE_PATH = shutil.which("geckodriver")
 
 class TorBrowserDriver(FirefoxDriver):
     """
@@ -31,7 +30,7 @@ class TorBrowserDriver(FirefoxDriver):
                  tbb_profile_path="",
                  tbb_logfile_path="",
                  tor_data_dir="",
-                 executable_path=GECKO_DRIVER_EXE_PATH,
+                 executable_path="",
                  pref_dict={},
                  socks_port=None,
                  control_port=None,
@@ -133,7 +132,7 @@ class TorBrowserDriver(FirefoxDriver):
             if tor_cfg == cm.USE_RUNNING_TOR:
                 socks_port = cm.DEFAULT_SOCKS_PORT  # 9050
             else:
-                socks_port = cm.STEM_SOCKS_PORT
+                socks_port = cm.DEFAULT_SOCKS_PORT
         if control_port is None:
             if tor_cfg == cm.USE_RUNNING_TOR:
                 control_port = cm.DEFAULT_CONTROL_PORT
